@@ -1,0 +1,32 @@
+{
+  "name": "oit/codeup-yihai-activity-log",
+  "description": "Create log for User Activity",
+  "keywords": [
+    "codeup",
+    "yihai",
+    "orangeit",
+    "oit",
+    "yii2",
+    "framework",
+    "log",
+    "audit",
+    "activity"
+  ],
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Upik Saleh",
+      "email": "upxsal@gmail.com"
+    }
+  ],
+  "require": {
+    "oit/codeup-yihai": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "codeup\\activitylog\\": "src"
+    }
+  },
+  "minimum-stability": "dev"
+}
