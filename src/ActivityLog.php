@@ -41,14 +41,6 @@ class ActivityLog extends \codeup\base\ActiveRecord
         ];
     }
 
-//    public function beforeSave($insert)
-//    {
-//        if(is_array($this->msg))
-//        $this->msg =
-//        return parent::beforeSave($insert);
-//    }
-
-
     public function setMsg($msg){
         $this->msg = Json::encode($msg, JSON_PRETTY_PRINT);
     }
@@ -81,6 +73,43 @@ class ActivityLog extends \codeup\base\ActiveRecord
             return $log->save();
         }else {
             return $log;
+        }
+    }
+
+    public function filterRules()
+    {
+        return [
+            ['id', 'integer'],
+            ['action', 'safe'],
+            ['model', 'safe'],
+            ['type', 'safe'],
+            ['user', 'safe'],
+            ['time', 'safe'],
+            ['msg', 'safe'],
+        ];
+    }
+    public function onSearch(&$query, $filterModel)
+    {
+        if($filterModel->id){
+            $query->andWhere(['like', 'id', $filterModel->id]);
+        }
+        if($filterModel->action){
+            $query->andWhere(['like', 'action', $filterModel->action]);
+        }
+        if($filterModel->model){
+            $query->andWhere(['like', 'model', $filterModel->model]);
+        }
+        if($filterModel->type){
+            $query->andWhere(['type'=> $filterModel->type]);
+        }
+        if($filterModel->user){
+            $query->andWhere(['like','user', $filterModel->user]);
+        }
+        if($filterModel->time){
+            $query->andWhere(['like','time', $filterModel->time]);
+        }
+        if($filterModel->msg){
+            $query->andWhere(['like','msg', $filterModel->msg]);
         }
     }
 }
