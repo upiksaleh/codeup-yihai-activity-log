@@ -7,9 +7,9 @@
  */
 
 /**
- * Class m000000_000300_sys_activity_logs
+ * Class m000000_000120_sys_activity_logs
  */
-class m000000_000300_sys_activity_logs extends \codeup\base\Migration
+class m000000_000120_sys_activity_logs extends \codeup\base\Migration
 {
     public $tableName = '{{%sys_activity_logs}}';
     public function up()
