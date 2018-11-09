@@ -49,7 +49,7 @@ class ActivityLog extends \codeup\base\ActiveRecord
     }
     /**
      * @param $type
-     * @param null\yii\base\Component|string $owner
+     * @param null|\yii\base\Component|string $owner
      * @param array|string $msg
      * @return ActivityLog|boolean
      */
